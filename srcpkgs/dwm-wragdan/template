@@ -1,0 +1,24 @@
+# Template file for 'dwm'
+pkgname=dwm
+version=git
+revision=latest
+makedepends="libXinerama-devel libXft-devel freetype-devel"
+short_desc="Dynamic window manager for X"
+maintainer="Wragdan <17775924+Wragdan@users.noreply.github.com>"
+license="MIT"
+homepage="https://dwm.suckless.org"
+distfiles="https://github.com/Wragdan/dwm/archive/refs/heads/main.tar.gz"
+checksum=eeb75cd64799d3feb087f07d6ace7982e5b7d31bdc262de7ca5e16b0aad5c346
+
+do_build() {
+	[ -e ${FILESDIR}/config.h ] && cp ${FILESDIR}/config.h config.h
+	vsed -e "/CFLAGS/s|\${CPPFLAGS}|& $CFLAGS|g" -i config.mk
+	make CC=$CC INCS="-I. -I${XBPS_CROSS_BASE}/usr/include/freetype2" LIBS="-lX11 -lXinerama -lXft -lfontconfig"
+}
+
+do_install() {
+	make PREFIX=/usr DESTDIR=$DESTDIR install
+	vinstall README 644 usr/share/doc/$pkgname
+	vinstall ${FILESDIR}/dwm.desktop 644 usr/share/xsessions
+	vlicense LICENSE
+}
