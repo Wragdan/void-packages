@@ -1,5 +1,5 @@
 # Template file for 'dwm'
-pkgname=dwm
+pkgname=dwm-wragdan
 version=6.5
 revision=latest
 makedepends="libXinerama-devel libXft-devel freetype-devel"
