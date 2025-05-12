@@ -1,7 +1,7 @@
 # Template file for 'dwm'
 pkgname=dwm-wragdan
 version=6.5
-revision=latest
+revision=1
 makedepends="libXinerama-devel libXft-devel freetype-devel"
 short_desc="Dynamic window manager for X"
 maintainer="Wragdan <17775924+Wragdan@users.noreply.github.com>"
