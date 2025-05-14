@@ -1,12 +1,12 @@
 # Template file for 'st'
-pkgname=st
+pkgname=st-wragdan
 version=0.9.2
 revision=1
 build_style=gnu-makefile
 make_use_env=compliant
 hostmakedepends="pkg-config"
 makedepends="fontconfig-devel libX11-devel libXft-devel harfbuzz-devel"
-depends="ncurses st-terminfo-${version}_${revision}"
+depends="ncurses st-wragdan-terminfo-${version}_${revision}"
 short_desc="Simple terminal implementation for X"
 maintainer="Wragdan <17775924+Wragdan@users.noreply.github.com>"
 license="MIT"
