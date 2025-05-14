@@ -26,7 +26,6 @@ pre_install() {
 
 post_install() {
 	vdoc README.md
-	vdoc FAQ
 	vlicense LICENSE
 }
 
