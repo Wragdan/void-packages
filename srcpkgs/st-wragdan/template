@@ -29,7 +29,7 @@ post_install() {
 	vlicense LICENSE
 }
 
-st-terminfo_package() {
+st-wragdan-terminfo_package() {
 	short_desc+=" - terminfo data"
 	pkg_install() {
 		vmove usr/share/terminfo
