@@ -15,7 +15,7 @@ distfiles="https://github.com/Wragdan/st/archive/refs/heads/master.tar.gz"
 checksum=4395af4193499583e0b731de684c34d98d8b58c66c3295f8f7af6a58069e5fa7
 
 pre_build() {
-	vsed -i config.def.h -e 's|Liberation Mono|Monospace|g'
+	vsed -i config.h -e 's|Liberation Mono|Monospace|g'
 	[ -e ${FILESDIR}/config.h ] && cp ${FILESDIR}/config.h config.h
 	mkdir -p ${DESTDIR}/usr/share/terminfo
 }
