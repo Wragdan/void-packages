@@ -1,0 +1,44 @@
+# Template file for 'bruno'
+pkgname=bruno
+version=2.6.1
+revision=1
+archs="x86_64"
+hostmakedepends="n python3 python3-distutils-extra"
+short_desc="Fast and Git-Friendly Opensource API client"
+maintainer="Wragdan <17775924+Wragdan@users.noreply.github.com>"
+license="MIT"
+homepage="https://www.usebruno.com/"
+changelog="https://www.usebruno.com/changelog"
+distfiles="https://github.com/usebruno/bruno/archive/refs/tags/v${version}.tar.gz"
+checksum=86f216a3e790dd0a475b8b54de849790fcfe3744caaee4048205a8e38e39f42f
+
+do_build() {
+	# using node 20
+	n 20
+
+	# dependencies
+	npm run setup
+
+	# node gyp dependencies
+	npm install node-addon-api
+
+	# actual bruno
+	npm run build:web
+	npm run build:electron
+}
+
+do_install() {
+	TARGET_PATH="opt/${pkgname}"
+
+	vlicense license.md
+
+	vmkdir ${TARGET_PATH}
+	vcopy packages/bruno-electron/out/linux-unpacked/* ${TARGET_PATH}
+
+
+	vinstall assets/images/logo.png 644 usr/share/pixmaps bruno.png
+
+	vmkdir usr/bin
+	ln -sf /${TARGET_PATH}/bruno ${DESTDIR}/usr/bin/${pkgname}
+	chmod 0755 ${DESTDIR}/${TARGET_PATH}/bruno
+}
