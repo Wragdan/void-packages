@@ -1,0 +1,20 @@
+# Template file for 'dwmblocks-wragdan'
+pkgname=dwmblocks-wragdan
+version=0.0
+revision=1
+makedepends="libX11-devel"
+short_desc="Modular status bar for dwm written in c."
+maintainer="Wragdan <17775924+Wragdan@users.noreply.github.com>"
+license="MIT"
+homepage="https://github.com/Wragdan/dwmblocks"
+distfiles="https://github.com/Wragdan/dwmblocks/archive/refs/heads/main.tar.gz"
+checksum=e8b0547ffeb464ea8f002d4a8ec10ff00117396241a069688a1b25afc08f7f34
+
+do_build() {
+	make CC=$CC
+}
+
+do_install() {
+	make PREFIX=/usr DESTDIR=$DESTDIR install
+	vlicense LICENSE
+}
