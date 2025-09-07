@@ -1,0 +1,15 @@
+# Template file for 'fnm'
+pkgname=fnm
+version=1.38.1
+revision=1
+build_style=cargo
+hostmakedepends="pkg-config"
+makedepends="libzstd-devel"
+depends=""
+short_desc="Fast and simple Node.js version manager, built in Rust"
+maintainer="Wragdan <17775924+Wragdan@users.noreply.github.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/Schniz/fnm"
+#changelog=""
+distfiles="https://github.com/Schniz/fnm/archive/refs/tags/v${version}.tar.gz"
+checksum=c24e4c26183a4d88a33e343902ed2d45da23e78c66b2a696a7420eb86deddda9
