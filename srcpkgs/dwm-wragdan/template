@@ -1,14 +1,14 @@
 # Template file for 'dwm'
 pkgname=dwm-wragdan
 version=6.5
-revision=10
+revision=11
 makedepends="libXinerama-devel libXft-devel freetype-devel"
 short_desc="Dynamic window manager for X"
 maintainer="Wragdan <17775924+Wragdan@users.noreply.github.com>"
 license="MIT"
 homepage="https://dwm.suckless.org"
 distfiles="https://github.com/Wragdan/dwm/archive/refs/heads/main.tar.gz"
-checksum=9dcd09737b6ce5ada1dd2d17a2a128880d0c8676cdf13eb97a02152872bed996
+checksum=0d87c6d0cfa1ed6366c0407e525c5af411e5e0ad011e6104e53d2a02a3c4002e
 
 do_build() {
 	[ -e ${FILESDIR}/config.h ] && cp ${FILESDIR}/config.h config.h
