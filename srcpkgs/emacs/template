@@ -1,7 +1,7 @@
 # Template file for 'emacs'
 pkgname=emacs
-version=30.2
-revision=2
+version=31.0
+revision=1
 create_wrksrc=required
 build_style=gnu-configure
 configure_args="--with-file-notification=inotify --with-modules
@@ -30,8 +30,8 @@ maintainer="Leah Neukirchen <leah@vuxu.org>"
 license="GPL-3.0-or-later"
 homepage="http://www.gnu.org/software/emacs/"
 changelog="https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases"
-distfiles="${GNU_SITE}/${pkgname}/${pkgname}-${version}.tar.xz"
-checksum=b3f36f18a6dd2715713370166257de2fae01f9d38cfe878ced9b1e6ded5befd9
+distfiles="https://github.com/emacs-mirror/emacs/archive/refs/heads/master.tar.gz"
+checksum=deb10f72c9c258a88e13b9df7e2d70519fd7b0ded3197d621eb92bd60fe5aa17
 nocross=yes
 nopie=yes
 
