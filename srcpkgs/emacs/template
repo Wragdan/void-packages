@@ -1,7 +1,7 @@
 # Template file for 'emacs'
 pkgname=emacs
-version=30.2
-revision=2
+version=31.1
+revision=1
 create_wrksrc=required
 build_style=gnu-configure
 configure_args="--with-file-notification=inotify --with-modules
@@ -11,7 +11,7 @@ configure_args="--with-file-notification=inotify --with-modules
  $(vopt_with harfbuzz) $(vopt_with cairo) $(vopt_with gmp libgmp)
  $(vopt_with sqlite sqlite3) $(vopt_with treesitter tree-sitter)
  $(vopt_with nativecomp native-compilation=aot)"
-hostmakedepends="pkg-config tar texinfo"
+hostmakedepends="pkg-config tar texinfo autoconf automake"
 makedepends="ncurses-devel libXaw-devel libXi-devel gtk+3-devel
  dbus-devel acl-devel
  $(vopt_if jpeg libjpeg-turbo-devel) $(vopt_if tiff tiff-devel)
@@ -30,8 +30,8 @@ maintainer="Leah Neukirchen <leah@vuxu.org>"
 license="GPL-3.0-or-later"
 homepage="http://www.gnu.org/software/emacs/"
 changelog="https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases"
-distfiles="${GNU_SITE}/${pkgname}/${pkgname}-${version}.tar.xz"
-checksum=b3f36f18a6dd2715713370166257de2fae01f9d38cfe878ced9b1e6ded5befd9
+distfiles="https://github.com/emacs-mirror/emacs/archive/8f31ccbf823bffa9ac46514e3c0ab1e464979c92.tar.gz"
+checksum=4fdbf15170f8aa27a48da5b0da69f060d8d365886b46bc45a0c6bb2049413d53
 nocross=yes
 nopie=yes
 
@@ -57,6 +57,20 @@ post_extract() {
 	cp -a emacs-* x11
 	cp -a emacs-* gtk3
 	cp -a emacs-* pgtk
+}
+
+pre_configure() {
+	cd $wrksrc/nox
+	./autogen.sh
+
+	cd $wrksrc/x11
+	./autogen.sh
+
+	cd $wrksrc/gtk3
+	./autogen.sh
+
+	cd $wrksrc/pgtk
+	./autogen.sh
 }
 
 do_configure() {

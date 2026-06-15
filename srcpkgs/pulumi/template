@@ -1,0 +1,38 @@
+# Template file for 'pulumi'
+pkgname=pulumi
+version=3.190.0
+revision=1
+build_style=fetch
+short_desc="The pulumi cli"
+maintainer="Wragdan <17775924+Wragdan@users.noreply.github.com>"
+license="Apache-2.0"
+homepage="https://www.pulumi.com"
+distfiles="https://get.pulumi.com/releases/sdk/${pkgname}-v${version}-linux-x64.tar.gz"
+checksum=a8cda5a0fd20f433e8ced3116bd5f26080a6481194dd20daa6a9b64390857b50
+
+do_install() {
+	TARGET_PATH="opt/${pkgname}"
+
+	vmkdir ${TARGET_PATH}
+
+	bsdtar -xf ${pkgname}-v${version}-linux-x64.tar.gz
+	vcopy pulumi/pulumi ${TARGET_PATH}
+	vcopy pulumi/pulumi-analyzer-policy ${TARGET_PATH}
+	vcopy pulumi/pulumi-language-nodejs ${TARGET_PATH}
+	vcopy pulumi/pulumi-resource-pulumi-nodejs ${TARGET_PATH}
+	vcopy pulumi/pulumi-watch ${TARGET_PATH}
+
+	vmkdir usr/bin
+
+	ln -sf /${TARGET_PATH}/pulumi ${DESTDIR}/usr/bin/pulumi
+	ln -sf /${TARGET_PATH}/pulumi-analyzer-policy ${DESTDIR}/usr/bin/pulumi-analyzer-policy
+	ln -sf /${TARGET_PATH}/pulumi-language-nodejs ${DESTDIR}/usr/bin/pulumi-language-nodejs
+	ln -sf /${TARGET_PATH}/pulumi-resource-pulumi-nodejs ${DESTDIR}/usr/bin/pulumi-resource-pulumi-nodejs
+	ln -sf /${TARGET_PATH}/pulumi-watch ${DESTDIR}/usr/bin/pulumi-watch
+
+	chmod 0755 ${DESTDIR}/${TARGET_PATH}/pulumi
+	chmod 0755 ${DESTDIR}/${TARGET_PATH}/pulumi-analyzer-policy
+	chmod 0755 ${DESTDIR}/${TARGET_PATH}/pulumi-language-nodejs
+	chmod 0755 ${DESTDIR}/${TARGET_PATH}/pulumi-resource-pulumi-nodejs
+	chmod 0755 ${DESTDIR}/${TARGET_PATH}/pulumi-watch
+}

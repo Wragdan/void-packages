@@ -4032,6 +4032,10 @@ libportal-gtk4.so.1 libportal-gtk4-0.6_1
 libportal-qt6.so.1 libportal-qt6-0.9.1_3
 libvips.so.42 libvips-8.9.2_1
 libvips-cpp.so.42 libvips-8.9.2_1
+libportal-qt5.so.1 libportal-qt5-0.7.1_1
+libvips.so.42 libvips-8.15.4_1
+libvips-cpp.so.42 libvips-8.15.4_1
+libvips-cpp.so.42.8.15.4 libvips-8.15.4_1
 libselinux.so.1 libselinux-3.0_1
 libsepol.so.1 libsepol-3.0_1
 libfrrcares.so.0 libfrr-7.3.1_1
@@ -4206,7 +4210,7 @@ libsword-1.9.0.so libsword-1.9.0_1
 libgivaro.so.9 givaro-4.1.1_1
 liblinbox.so.0 linbox-1.6.3_1
 libpari-gmp-tls.so.9 pari-2.17.0_1
-libtree-sitter.so.0.25 tree-sitter-0.25.2_1
+libtree-sitter.so.0.26 tree-sitter-0.26.9_1
 libplanarity.so.2 planarity-4.0.0.0_1
 libgap.so.10 gap-4.15.1_1
 libgtkdatabox.so.1 gtkdatabox3-1.0.0_1
