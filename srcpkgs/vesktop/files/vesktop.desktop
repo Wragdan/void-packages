@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Name=Vesktop
+Comment=A discord alternative
+Exec=vesktop
+Icon=vesktop
+Terminal=false
+Categories=Social
+

@@ -1,14 +1,14 @@
 # Template file for 'vesktop'
 pkgname=vesktop
-version=1.5.7
-revision=1
+version=1.7.1
+revision=3
 hostmakedepends="nodejs pnpm"
 short_desc="Vesktop is a custom discord app"
 maintainer="Wragdan <17775924+Wragdan@users.noreply.github.com>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/Vencord/Vesktop"
 distfiles="https://github.com/Vencord/Vesktop/archive/refs/tags/v${version}.tar.gz"
-checksum=5018a7df4c10bc95ff62234f94c903a56c2051f826adb1110bf3d00297e4a848
+checksum=c4a90ff8df8a1232ba4274824d47a56a1ca00a573a444ae4b80463ae1c22ea52
 
 do_build() {
 	pnpm install --frozen-lockfile
@@ -24,4 +24,9 @@ do_install() {
 	vmkdir usr/bin
 	ln -sf /${TARGET_PATH}/vesktop ${DESTDIR}/usr/bin/${pkgname}
 	chmod 0755 ${DESTDIR}/${TARGET_PATH}/vesktop
+}
+
+post_install() {
+	vinstall ${FILESDIR}/vesktop.desktop 644 usr/share/applications
+	vinstall ${FILESDIR}/vesktop.png 644 usr/share/pixmaps
 }
